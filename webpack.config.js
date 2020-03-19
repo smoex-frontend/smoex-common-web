@@ -1,16 +1,31 @@
-// 引入css 单独打包插件
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-// 设置生成css 的路径和文件名，会自动将对应entry入口js文件中引入的CSS抽出成单独的文件
-var packCSS = new ExtractTextPlugin('./css/[name].min.css')
 var nodeExternals = require('webpack-node-externals')
 var fs = require('fs')
 var path = require('path')
+var dotenv = require('dotenv')
 var getCSSModuleLocalIdent = require('react-dev-utils/getCSSModuleLocalIdent')
 var { CheckerPlugin } = require('awesome-typescript-loader')
 var { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const ForkTsCheckerWebpackPlugin = require('react-dev-utils/ForkTsCheckerWebpackPlugin')
-const resolve = require('resolve')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+dotenv.config()
+
+const appDirectory = fs.realpathSync(process.cwd())
+const resolveApp = (relativePath) => path.resolve(appDirectory, relativePath)
+
+const appPackageJson = require(resolveApp('package.json'))
+const envPublicUrl = process.env.PUBLIC_URL
+
+function ensureSlash(inputPath, needsSlash) {
+  const hasSlash = inputPath.endsWith('/')
+  if (hasSlash && !needsSlash) {
+    return inputPath.substr(0, inputPath.length - 1)
+  } else if (!hasSlash && needsSlash) {
+    return `${inputPath}/`
+  } else {
+    return inputPath
+  }
+}
+
+const publicPath = ensureSlash(envPublicUrl || appPackageJson.homepage || '/')
 
 module.exports = {
   mode: 'production',
@@ -20,11 +35,11 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: __dirname + '/build',
-    jsonpFunction: `webpackJsonpsmoex-common-mobile`,
+    jsonpFunction: `webpackJsonp${appPackageJson.name}`,
     chunkFilename: 'static/js/[name].[contenthash:8].chunk.js',
     globalObject: 'this',
     libraryTarget: 'umd',
-    publicPath: 'https://public.smoex.com/common-mobile/',
+    publicPath,
   },
 
   // Enable sourcemaps for debugging webpack's output.
