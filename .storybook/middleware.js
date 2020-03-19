@@ -4,7 +4,7 @@ module.exports = function expressMiddleware(router) {
   router.use(
     '/api',
     proxy({
-      target: 'https://admin.smoex.com',
+      target: 'https://www.smoex.com',
       changeOrigin: true,
     }),
   )

@@ -1,0 +1,22 @@
+@mixin h-property($key, $value) {
+  @if $value != x {
+    #{$key}: $value;
+  }
+}
+
+@mixin h-width($wdith) {
+  $medium: nth($wdith, 1);
+  $small: nth($wdith, 2);
+  $mobile: nth($wdith, 3);
+  @media screen and (min-width: $screen-width-medium) {
+    width: $medium;
+  }
+
+  @media screen and (min-width: $screen-width-small) and (max-width: $screen-width-medium) {
+    width: $small;
+  }
+
+  @media screen and (max-width: $screen-width-mobile) {
+    $width: $mobile;
+  }
+}

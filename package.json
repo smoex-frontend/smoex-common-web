@@ -1,10 +1,10 @@
 {
   "name": "smoex-common-web",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "smoex-common-web",
   "main": "build/index.js",
   "scripts": {
-    "start": "start-storybook -p 6006",
+    "start": "start-storybook -p 3000",
     "build": " webpack",
     "build:prod": "npm run build && npm publish",
     "upload": "smoex-scripts upload ./build",

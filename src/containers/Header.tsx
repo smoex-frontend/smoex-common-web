@@ -1,14 +1,19 @@
 import * as React from 'react'
 import '../index.scss' // TODO: 全局 scss 的引入暂时放在 Header
-import styles from './styles/App.module.scss'
-import { transformStyles } from 'react-dom-basic-kit'
-
 import { NavLink } from 'react-router-dom'
-import { usePageProps } from './PageRouterContext'
+import styles from './styles/App.module.scss'
+import { useThemeStyles } from 'react-dom-basic-kit'
+import { commonSlice } from 'smoex-common-business'
+const useStyle = () => useThemeStyles(styles)
 
-const cx = transformStyles(styles)
+const Profile: React.FC<any> = () => {
+  const cx = useStyle()
+  // const [account] = commonSlice.useSelector(state.)
+  return <div className={cx('header-profile')}>{}</div>
+}
 
 export const Header: React.FC<any> = (props) => {
+  const cx = useStyle()
   return (
     <header id="Header" className={cx('header')}>
       <div className={cx('header-wrapper')}>
@@ -18,11 +23,9 @@ export const Header: React.FC<any> = (props) => {
           className={cx('header-logo')}
           activeClassName={cx('header-logo--disable')}
         >
-          LOGO
+          SMOEX
         </NavLink>
-        <div className={cx('header-menu')}>
-          MENU WEB
-        </div>
+        <Profile />
       </div>
     </header>
   )

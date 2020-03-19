@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import { configureStore } from 'redux-async-kit'
 import { Container } from 'react-dom-basic-kit'
-import { PageRouter } from '../containers/PageRouter'
+import { PageRouter, usePageContext } from '../containers/PageRouter'
 import { commonSlice, commonReducer } from 'smoex-common-business'
 import { Provider } from 'react-redux'
 // import { homeSlice } from 'common/slices/home'
@@ -19,7 +19,21 @@ const store = configureStore({
 const HomePage = () => {
   return (
     <section>
-      <PageLoading />
+      homepage
+      <Link to="/test"> to test </Link>
+    </section>
+  )
+}
+
+const TestPage = () => {
+  const { update } = usePageContext()
+  React.useEffect(() => {
+    update({ showFooter: false })
+  }, [])
+  return (
+    <section>
+      test
+      <Link to="/home">to home</Link>
     </section>
   )
 }
@@ -29,6 +43,7 @@ export const BlankPage: React.FC = () => {
     <Provider store={store}>
       <Container>
         <PageRouter>
+          <Route path="/test" component={TestPage} />
           <Route path="/" component={HomePage} />
         </PageRouter>
       </Container>

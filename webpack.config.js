@@ -25,7 +25,10 @@ function ensureSlash(inputPath, needsSlash) {
   }
 }
 
-const publicPath = ensureSlash(envPublicUrl || appPackageJson.homepage || '/')
+const publicPath = ensureSlash(
+  envPublicUrl || appPackageJson.homepage || '/',
+  true,
+)
 
 module.exports = {
   mode: 'production',

@@ -1,0 +1,13 @@
+$screen-width-medium: 1400px !default;
+$screen-width-small: 980px !default;
+$screen-width-mobile: 480px !default;
+
+$container-width-medium: 1200px !default;
+$container-width-small: 980px !default;
+$container-width-mobile: 480px !default;
+
+$container-width: (
+  $container-width-medium,
+  $container-width-small,
+  $container-width-mobile
+);

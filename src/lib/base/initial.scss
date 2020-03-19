@@ -1,0 +1,18 @@
+main,
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  #header,
+  #footer,
+  > header,
+  > footer {
+    flex-shrink: 0;
+  }
+
+  > #page,
+  > section {
+    flex-grow: 1;
+  }
+}

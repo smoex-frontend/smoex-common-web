@@ -11,9 +11,6 @@ export const Footer = React.lazy(() =>
 export const Controller = React.lazy(() =>
   import('./containers/Controller' /* webpackChunkName: "common" */),
 )
-export const Install = React.lazy(() =>
-  import('./containers/Install' /* webpackChunkName: "common" */),
-)
 export const PageError = React.lazy(() =>
   import('./containers/PageError' /* webpackChunkName: "common" */),
 )
@@ -39,10 +36,3 @@ export const FullScreenModal = React.lazy(() =>
 export const TipsModal = React.lazy(() =>
   import('./components/TipsModal' /* webpackChunkName: "common" */),
 )
-
-// export const LoginModal = React.lazy(() =>
-//   import('./partials/LoginModal' /* webpackChunkName: "common" */),
-// )
-// export const MenuModal = React.lazy(() =>
-//   import('./partials/MenuModal' /* webpackChunkName: "common" */),
-// )
