@@ -31,7 +31,7 @@ export const DrawerModal = React.lazy(() =>
   import('./components/DrawerModal' /* webpackChunkName: "common" */),
 )
 export const FullScreenModal = React.lazy(() =>
-  import('./components/FullScreenModal' /* webpackChunkName: "common" */),
+  import('./components/StandardModal' /* webpackChunkName: "common" */),
 )
 export const TipsModal = React.lazy(() =>
   import('./components/TipsModal' /* webpackChunkName: "common" */),

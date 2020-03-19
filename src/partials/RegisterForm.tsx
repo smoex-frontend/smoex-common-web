@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FullScreenModal } from '../components/FullScreenModal'
+import { StandardModal } from '../components/StandardModal'
 import styles from './styles/LoginModal.module.scss'
 import {
   asModalProps,

@@ -10,7 +10,7 @@ export * from './containers/PageRouter'
 export * from './components/Loading'
 export * from './components/ConfirmModal'
 export * from './components/DrawerModal'
-export * from './components/FullScreenModal'
+export * from './components/StandardModal'
 export * from './components/TipsModal'
 
 export * from './partials/LoginForm'

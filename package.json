@@ -1,6 +1,6 @@
 {
   "name": "smoex-common-web",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "smoex-common-web",
   "main": "build/index.js",
   "scripts": {
@@ -31,13 +31,14 @@
   "dependencies": {
     "@types/react-redux": "^7.1.5",
     "browser-basic-kit": "^0.0.1",
+    "js-basic-kit": "^0.0.4",
     "react": "^16.11.0",
     "react-dom": "^16.12.0",
     "react-dom-basic-kit": "^0.0.34",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "redux-async-kit": "^0.0.12",
-    "smoex-common-business": "^0.0.5"
+    "smoex-common-business": "^0.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",

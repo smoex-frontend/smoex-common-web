@@ -18,3 +18,7 @@ $header-height: 48px;
   @include btn-label(0 15px, $header-height);
   @include btn--disabled();
 }
+
+.header-login {
+  @include btn-label(0 15px, $header-height);
+}

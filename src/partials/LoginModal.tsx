@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { FullScreenModal } from '../components/FullScreenModal'
+import { StandardModal } from '../components/StandardModal'
 import styles from './styles/LoginModal.module.scss'
 import {
   asModalProps,
@@ -62,7 +62,7 @@ export const LoginModal: React.FC<any> = (props) => {
     toggleToast('test')
   }
   return (
-    <FullScreenModal {...asModalProps(props)} onClose={onCloseModal}>
+    <StandardModal {...asModalProps(props)} onClose={onCloseModal}>
       <div className={cx('login-modal')}>
         <div className={cx('login-modal-logo')}>SMOEX</div>
         {form === 'login' && (
@@ -82,6 +82,6 @@ export const LoginModal: React.FC<any> = (props) => {
         <br />
         <div onClick={toggleMessage}>TEST TOAST</div>
       </div>
-    </FullScreenModal>
+    </StandardModal>
   )
 }

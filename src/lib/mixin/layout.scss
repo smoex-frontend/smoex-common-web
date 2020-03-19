@@ -40,13 +40,18 @@
   @if $h-align == end {
     right: 0;
   }
-  @if $v-align == center {
+  @if $v-align == center and $h-align != center {
     top: 50%;
     transform: translateY(-50%);
   }
-  @if $h-center == end {
+  @if $h-align == center and $v-align != center {
     left: 50%;
     transform: translateX(-50%);
+  }
+  @if $h-align == center and $v-align == center {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
   @content;
 }
