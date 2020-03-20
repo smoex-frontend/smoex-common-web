@@ -1,6 +1,6 @@
 @mixin c-size($width, $height) {
-  @include h-property($width, $width);
-  @include h-property($height, $height);
+  @include h-property(width, $width);
+  @include h-property(height, $height);
   @content;
 }
 

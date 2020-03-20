@@ -58,6 +58,7 @@
 
 @mixin l-container() {
   @include h-width($container-width);
+  @include h-property(min-width, $container-min-width);
   margin-left: auto;
   margin-right: auto;
 }

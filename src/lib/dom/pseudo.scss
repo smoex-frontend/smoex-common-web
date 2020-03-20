@@ -1,6 +1,7 @@
 %pseudo-base {
   content: '';
   margin: auto;
+  display: block;
 }
 
 %clearfix {
@@ -26,7 +27,6 @@
 }
 
 @mixin p-rect($width, $height, $color, $pseudo: after) {
-  position: relative;
   &::#{$pseudo} {
     @extend %pseudo-base;
     background-color: $color;
@@ -36,19 +36,18 @@
   }
 }
 @mixin p-traingle($width, $height, $color, $pseudo: after) {
-  position: relative;
   &::#{$pseudo} {
     @extend %pseudo-base;
-    border-top: $width solid transparent;
-    border-bottom: $width solid transparent;
-    border-right: $height solid $color;
+    border-left: $width solid transparent;
+    border-right: $width solid transparent;
+    border-bottom: $height * 2 solid $color;
     height: 0;
+    width: 0;
     @content;
   }
 }
 
 @mixin p-half-line($length, $pseudo: after) {
-  position: relative;
   &::#{$pseudo} {
     @extend %pseudo-base;
     height: 1px;

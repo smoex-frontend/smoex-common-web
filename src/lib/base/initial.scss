@@ -2,7 +2,7 @@ main,
 #root {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100%;
 
   #header,
   #footer,
@@ -15,4 +15,10 @@ main,
   > section {
     flex-grow: 1;
   }
+}
+
+html,
+body {
+  min-width: $container-min-width;
+  min-height: 100%;
 }

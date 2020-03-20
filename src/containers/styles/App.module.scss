@@ -22,3 +22,46 @@ $header-height: 48px;
 .header-login {
   @include btn-label(0 15px, $header-height);
 }
+.header-user {
+  position: relative;
+  &:hover {
+    > *:nth-child(2) {
+      opacity: 1;
+      color: red;
+      padding-top: 5px;
+      pointer-events: all;
+    }
+  }
+}
+.header-avatar {
+  @include btn-label(0 15px, $header-height);
+}
+
+.profile-wrapper {
+  @include l-position(absolute, 100% x x 0);
+  transition: 0.3s all;
+  opacity: 0;
+  padding-top: 10px;
+  pointer-events: none;
+}
+.profile-panel {
+  background-color: $white;
+  padding: 16px;
+  box-shadow: 0 1px 4px #ccc;
+  // @include p-rect(15px, 15px, red) {
+  //   box-shadow: 0 1px 4px #ccc;
+  //   transform: skew(10deg, 10deg);
+  // }
+}
+
+.profile-link-wrapper {
+  @include l-flex(column, x);
+}
+
+.profile-link {
+  @include text-link(x);
+  margin-bottom: 10px;
+}
+.profile-logout {
+  @include text-link(x);
+}
