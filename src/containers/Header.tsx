@@ -17,7 +17,7 @@ import { LoginModal } from '../partials/LoginModal'
 const useStyle = () => useThemeStyles(styles)
 
 const SMOEX_HOME_URL = '//www.smoex.com'
-const SMOEX_LEARN_URL = '//www.smoex.com'
+const SMOEX_LEARN_URL = '//learn.smoex.com'
 
 const mockLinks = [
   ['To Account', `${SMOEX_HOME_URL}/account`],
@@ -34,24 +34,28 @@ const ProfilePanel: React.FC = () => {
   }
   useToastError(logoutState.error)
   return (
-    <div className={cx('profile-wrapper')}>
-      <div className={cx('profile-panel')}>
-        <div className={cx('profile-link-wrapper')}>
-          {mockLinks.map(([name, link], i) => (
-            <a
-              className={cx('profile-link')}
-              key={i}
-              href={link}
-              target="_blank"
-            >
-              {name}
-            </a>
-          ))}
-        </div>
-        <div className={cx('profile-logout')} onClick={onLogout}>
-          Logout
-        </div>
+    <div className={cx('profile-panel')}>
+      <div className={cx('profile-link-wrapper')}>
+        {mockLinks.map(([name, link], i) => (
+          <a className={cx('profile-link')} key={i} href={link} target="_blank">
+            {name}
+          </a>
+        ))}
       </div>
+      <div className={cx('profile-logout')} onClick={onLogout}>
+        Logout
+      </div>
+    </div>
+  )
+}
+
+const Bubble: React.FC<any> = (props) => {
+  const cx = useStyle()
+  const { className, children, popPanel } = props
+  return (
+    <div className={cx('bubble', className)}>
+      {children}
+      <div className={cx('bubble-wrapper')}>{popPanel}</div>
     </div>
   )
 }
@@ -59,23 +63,41 @@ const ProfilePanel: React.FC = () => {
 const Profile: React.FC<any> = () => {
   const cx = useStyle()
   const [account] = commonSlice.useSelector(accountSelector.info)
-  const [toggleModal] = useModal(LoginModal)
+  const [showModal] = useModal((mProps: any) => (
+    <LoginModal {...mProps}>{`test`}</LoginModal>
+  )) as any
+  const onShowModal = (name: string) => () => {
+    showModal({ defaultForm: name })
+  }
   return (
     <div className={cx('header-profile')}>
       {(!account && <div>loading</div>) ||
         (['visitor'].includes(account?.group) && (
-          <div className={cx('header-login')} onClick={toggleModal}>
-            Login
+          <div className={cx('nav-item nav-visitor')}>
+            <span className={cx('to-login')} onClick={onShowModal('login')}>
+              Login
+            </span>
+            <span
+              className={cx('to-register')}
+              onClick={onShowModal('register')}
+            >
+              Register
+            </span>
           </div>
         )) ||
         (['guest', 'member'].includes(account.group) && (
           <React.Fragment>
-            <div className={cx('header-user')}>
-              <div className={cx('header-avatar')}>avatar</div>
-              <ProfilePanel />
-            </div>
+            <Bubble popPanel={<ProfilePanel />}>
+              <div className={cx('nav-item')}>avatar</div>
+            </Bubble>
+            <Bubble popPanel={<ProfilePanel />}>
+              <div className={cx('nav-item')}>notice</div>
+            </Bubble>
           </React.Fragment>
         ))}
+      <Bubble popPanel={<ProfilePanel />}>
+        <div className={cx('nav-item')}>POST</div>
+      </Bubble>
     </div>
   )
 }

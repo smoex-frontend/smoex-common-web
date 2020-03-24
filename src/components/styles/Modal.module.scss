@@ -22,6 +22,7 @@
   flex-grow: 1;
   overflow-y: scroll;
   padding: 0 10px;
+  max-height: 60vh;
 
   &::-webkit-scrollbar {
     display: none;

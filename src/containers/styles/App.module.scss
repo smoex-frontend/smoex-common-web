@@ -19,39 +19,37 @@ $header-height: 48px;
   @include btn--disabled();
 }
 
-.header-login {
-  @include btn-label(0 15px, $header-height);
-}
-.header-user {
-  position: relative;
-  &:hover {
-    > *:nth-child(2) {
-      opacity: 1;
-      color: red;
-      padding-top: 5px;
-      pointer-events: all;
-    }
-  }
-}
-.header-avatar {
-  @include btn-label(0 15px, $header-height);
+.header-profile {
+  @include l-flex(row, center);
 }
 
-.profile-wrapper {
-  @include l-position(absolute, 100% x x 0);
-  transition: 0.3s all;
-  opacity: 0;
-  padding-top: 10px;
-  pointer-events: none;
+.nav-item {
+  @include btn-label(0 15px, $header-height);
+}
+.nav-visitor {
+  cursor: default;
+}
+.to-login {
+  @include text-link(x);
+}
+.to-register {
+  @include text-link(x);
+  margin-left: 5px;
+}
+
+.bubble {
+  @include bubble();
+  @include bubble__panel(bubble-wrapper) {
+    padding-top: 10px;
+  }
+  @include bubble__panel--hover(bubble-wrapper) {
+    padding-top: 5px;
+  }
 }
 .profile-panel {
   background-color: $white;
   padding: 16px;
   box-shadow: 0 1px 4px #ccc;
-  // @include p-rect(15px, 15px, red) {
-  //   box-shadow: 0 1px 4px #ccc;
-  //   transform: skew(10deg, 10deg);
-  // }
 }
 
 .profile-link-wrapper {

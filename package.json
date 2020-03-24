@@ -1,6 +1,6 @@
 {
   "name": "smoex-common-web",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "smoex-common-web",
   "main": "build/index.js",
   "scripts": {
@@ -34,7 +34,7 @@
     "js-basic-kit": "^0.0.4",
     "react": "^16.11.0",
     "react-dom": "^16.12.0",
-    "react-dom-basic-kit": "^0.0.35",
+    "react-dom-basic-kit": "^0.0.37",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "redux-async-kit": "^0.0.12",

@@ -50,7 +50,8 @@ export const LoginFormInput: React.FC<any> = (props) => {
 }
 
 export const LoginModal: React.FC<any> = (props) => {
-  const [form, setForm] = React.useState('login')
+  const { defaultForm } = props
+  const [form, setForm] = React.useState(defaultForm || 'login')
   const onCloseModal = () => {
     props.onClose()
   }
